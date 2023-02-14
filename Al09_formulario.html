@@ -14,7 +14,12 @@
             * Utilizar a tag <br/> e <fieldset> tem o intuito de dividir e separar alguns campos de forma genérica, iremos utilizar o CSS para estilização do nosso formulário posteriormente.
         -->
         <fieldset class="form1">
-            <form action="#">
+            <form
+                method="post"
+                id="fcontato"
+                action="mailto:ermerson.barros@outlook.com"
+                oninput="result.value=parseInt(valor_01.value)+parseInt(valor_02.value)"
+            >
                 <h3>Informaões Cadastrais</h3>
                 <fieldset>
                     <legend>Formulário de cadastro aluno:</legend>
@@ -139,10 +144,20 @@
                         <option value="Zona Leste"></option>
                         <option value="Zona Oeste"></option>
                     </datalist>
-                    <p>Quantos cursos você já fez nesta intituição:</p>
-                    <!-- Input do tipo range adiciona uma barra que podemos arrastar para alterar um valor, nosso input está incompleto pois precisamos de um arquivo JS para dar uma funcionalidade real, iremos voltar neste ponto mais tarde. -->
-                    0 <input type="range" min="0" max="5" /> 5
-                    <br />
+                    <p>Quantos cursos você já fez nesta instituição:</p>
+                    <!-- Input do tipo range adiciona uma barra que podemos arrastar para alterar um valor, nosso input está incompleto, iremos voltar neste ponto mais tarde. -->
+                    <legend>Cursos:</legend>
+                    0
+                    <input type="range" id="valor_01" name="valor_01" max="5" min="0" />
+                    5 +
+                    <input
+                        type="number"
+                        id="valor_02"
+                        name="valor_02"
+                        value="0"
+                    />
+                    =
+                    <output name="result" for="valor_01 "></output>
                     <br />
                 </fieldset>
                 <br />
@@ -152,7 +167,7 @@
                     <textarea
                         name="opt"
                         id="opniao"
-                        cols="50"
+                        cols="100"
                         rows="15"
                         placeholder="Deixe sua sugestão aqui."
                     ></textarea>
